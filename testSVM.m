@@ -61,12 +61,12 @@ degree = [2, 3, 4, 5];
 model = [];
 for i=gama
     sub_gama = [' -g ', num2str(i)];
-    train_options = [train_options, cross_validation, sub_gama];
+    subgama_train_options = [train_options, cross_validation, sub_gama];
     for j=degree
         sub_degree = [' -d ', num2str(j)];
-        train_options = [train_options, sub_degree];
-        model = svmtrain(trainLabel, trainFea, train_options);
-        
+        subdegree_train_options = [subgama_train_options, sub_degree];
+        model = [model, svmtrain(trainLabel, trainFea, subdegree_train_options)];
+
     end
 end
 
