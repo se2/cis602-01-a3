@@ -4,6 +4,8 @@ clc
 load('PIE.mat')
 fea = Data;
 gnd = Label;
+clear Data;
+clear Label;
 % normalize data
 fea = NormalizeFea(fea, 1);
 
@@ -19,7 +21,7 @@ fea = fea * eigvector;
 affinity_matrix =[];
 degree_maxtrix = [];
 
-sigma = 1;
+sigma = 2;
 
 for i=1:nFea    
     for j=1:nFea
@@ -48,11 +50,11 @@ laplacian_maxtrix = NormalizeFea(degree_maxtrix - affinity_matrix);
 
 % first k eigVectos
 k = 800;
-% filter first k vectors
-lap_eigVector = lap_eigVector(:,1:k);
+% filter first k vector and transpose
+lap_eigVector = lap_eigVector(1:k,:)';
 % normalize
 lap_eigVector = NormalizeFea(lap_eigVector);
-% predict use K-means with k = 67
+
 [predictLabel, center] = litekmeans(lap_eigVector, 67, 'MaxIter', 100, 'Replicates', 2);
 
 % compute the clustering accuracy
