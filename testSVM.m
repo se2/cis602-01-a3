@@ -19,7 +19,7 @@ fea = NormalizeFea(fea, 1);
 % numSampleInEachDigit = 1100;
 
 % number of training data
-numTrainingInEachDigit = 10;
+numTrainingInEachDigit = 5;
 
 % get training data and training label
 trainIndex = [];
