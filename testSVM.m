@@ -109,7 +109,7 @@ clusteringNMI = nmi(testLabel, predictLabel);
 % 
 % % predict using svm
 % [predictLabel] = svmpredict(testLabel, testFea, polynomialModel);
-% 
+
 % % stop running time
 % runningTime = toc;
 % 

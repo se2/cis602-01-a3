@@ -60,7 +60,7 @@ k = 67;
 [lap_eigVector, lap_eigValue] = eigs(laplacian_maxtrix, k);
 eigTime = toc;
 
-fprintf('the running time of computing first k-eigvectors is %fT seconds.\n', eigTime);
+fprintf('the running time of computing firstk-eigvectors is %fT seconds.\n', eigTime);
 
 tic;
 % flip to have eigvector indicates with smallest eigvalue on left
